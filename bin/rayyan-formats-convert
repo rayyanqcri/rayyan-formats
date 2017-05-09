@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'rayyan-formats'
+require 'logger'
+
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
+RayyanFormats::Base.logger = logger
+
+RayyanFormats::Base.plugins = [
+  RayyanFormats::Plugins::Refman,
+  RayyanFormats::Plugins::PubmedXML,
+  RayyanFormats::Plugins::EndNote,
+  RayyanFormats::Plugins::WordDocument,
+  RayyanFormats::Plugins::GZ,
+  RayyanFormats::Plugins::Zip
+]
+
+RayyanFormats::Base.max_file_size = 1_073_741_824 # 1GB
+
+plugin = RayyanFormats::Base.get_export_plugin('ris')
+%w(
+  spec/support/refman-example.ris
+).each do |filename|
+  RayyanFormats::Base.import(RayyanFormats::Source.new(filename)) { |target, total|
+    puts plugin.export(target)
+  }
+end
