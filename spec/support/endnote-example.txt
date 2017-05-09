@@ -1,0 +1,34 @@
+%0 Journal Article
+%T Identification of Skin as a Major Site on Prostaglandin D2 Release Following Oral Administration of Niacin in Humans
+%A Morrow, Jason D
+%A Awad, Joseph A
+%A Oates, John A
+%A Roberts, L Jackson
+%J Journal of investigative dermatology
+%V 98
+%N 5
+%P 812-815
+%@ 0022-202X
+%D 1992
+%I Nature Publishing Group
+
+%0 Journal Article
+%T ELECTROCARDIOGRAM ABNORMALITY BASED ON MINNESOTA CODE IN KNOWN TYPE 2 DIABETIC PATIENTS
+%A SAFAEI, H
+%A AMINI MASOUD, FARMANI M
+%J IRANIAN JOURNAL OF ENDOCRINOLOGY AND METABOLISM (IJEM)
+%D 2004
+
+%0 Journal Article
+%T Isolation and identification
+of lactic acid bacteria producing bile
+salt hydrolase and study on mechnism of recucing colestrol
+%A Wang, YW
+%A Liu, Hui
+%A Li, PL
+%A WANG, Yan-xiang
+%A XIONG, Li-xia
+%J Food Sci
+%V 27
+%P 215-218
+%D 2006

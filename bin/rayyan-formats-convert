@@ -3,26 +3,50 @@
 require 'rayyan-formats'
 require 'logger'
 
-logger = Logger.new(STDOUT)
-logger.level = Logger::DEBUG
+logger = Logger.new(STDERR)
+logger.level = Logger::WARN
 RayyanFormats::Base.logger = logger
 
-RayyanFormats::Base.plugins = [
-  RayyanFormats::Plugins::Refman,
-  RayyanFormats::Plugins::PubmedXML,
-  RayyanFormats::Plugins::EndNote,
-  RayyanFormats::Plugins::WordDocument,
-  RayyanFormats::Plugins::GZ,
-  RayyanFormats::Plugins::Zip
-]
+# list all known plugins in runtime
+# http://stackoverflow.com/a/3680719/441849
+RayyanFormats::Base.plugins = 
+  RayyanFormats::Plugins.constants
+  .map(&RayyanFormats::Plugins.method(:const_get))
+  .grep(Class)
 
 RayyanFormats::Base.max_file_size = 1_073_741_824 # 1GB
 
-plugin = RayyanFormats::Base.get_export_plugin('ris')
-%w(
-  spec/support/refman-example.ris
-).each do |filename|
-  RayyanFormats::Base.import(RayyanFormats::Source.new(filename)) { |target, total|
-    puts plugin.export(target)
-  }
+if ARGV.length < 2
+  $stderr.puts "Must provide input file name(s) as the first arguments followed by the output file name"
+  $stderr.puts "USAGE: #{File.basename($0)} <input-file1> [<input-file2> [<input-file3> [...]]] <output-file>"
+  exit 1
+end
+
+output_file = ARGV.pop
+input_files = ARGV
+ext = File.extname(output_file).delete('.')
+
+if ext.empty?
+  $stderr.puts "Output file name must have an extension"
+  exit 1
+end
+
+begin
+  plugin = RayyanFormats::Base.get_export_plugin(ext)
+  out, total, grand_total = File.open(output_file, "w"), 0, 0
+  input_files.each do |input_filename|
+    total = 0
+    RayyanFormats::Base.import(RayyanFormats::Source.new(input_filename)) { |target|
+      out.puts plugin.export(target, {include_abstracts: true})
+      total += 1
+    }
+    grand_total += total
+    puts "Imported #{total} #{total == 1 ? 'entry' : 'entries'} from: #{input_filename}"
+  end
+  puts "Exported #{grand_total} #{grand_total == 1 ? 'entry' : 'entries'} to: #{output_file}"
+rescue => e
+  $stderr.puts e.message
+  exit 1
+ensure
+  out.close if out
 end

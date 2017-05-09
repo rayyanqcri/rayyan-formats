@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.version       = RayyanFormats::VERSION
   spec.authors       = ["Hossam Hammady"]
   spec.email         = ["github@hammady.net"]
-  spec.description   = %q{Rayyan formats root gem with a command line converter}
-  spec.summary       = %q{Rayyan formats root gem. It offers a command line converter and delegates all the work to the rayyan-formats-core and rayyan-formats-plugins gems.}
+  spec.description   = %q{Rayyan formats main gem with a command line converter}
+  spec.summary       = %q{Rayyan formats main gem. It offers a command line converter and delegates all the work to the rayyan-formats-core and rayyan-formats-plugins gems.}
   spec.homepage      = "https://github.com/rayyanqcri/rayyan-formats"
   spec.license       = "MIT"
 
