@@ -3,7 +3,14 @@
 
 # RayyanFormats
 
-TODO
+This gem offers a command line utility to convert between different reference file
+formats defined using plugins in the `RayyanFormats::Plugins` namespace.
+This is a list of known gems that offer such plugins:
+- [rayyan-formats-core](https://github.com/rayyanqcri/rayyan-formats-core)
+- [rayyan-formats-plugins](https://github.com/rayyanqcri/rayyan-formats-plugins)
+- [rayyan-scrapers](https://github.com/rayyanqcri/rayyan-scrapers)
+
+It can also be used as a single gem dependency when working with RayyanFormats.
 
 ## Installation
 
@@ -21,7 +28,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO
+### Command line usage
+
+To convert a Refman file to EndNote text:
+
+    $ rayyan-formats-convert input.ris output.enw
+
+You can even combine multiple input files and convert them to a single output file:
+
+    $ rayyan-formats-convert input1.ris input2.csv input3.ciw output.enw
+
+### Ruby usage
+
+    args = %w(input1.ris output.enw)
+    begin
+      RayyanFormats::Command.new(args).run
+    rescue => e
+      # problem in conversion
+      puts e.message
+    end
 
 ## Testing
 
