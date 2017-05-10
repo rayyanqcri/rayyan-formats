@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rayyan-formats (0.1.5)
+    rayyan-formats (0.1.0)
       rayyan-formats-core (~> 0.1.0)
       rayyan-formats-plugins (~> 0.1.0)
       rayyan-scrapers (~> 0.1.0)

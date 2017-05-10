@@ -2,11 +2,11 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rayyan-formats-core/version'
+require 'rayyan-formats/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rayyan-formats"
-  spec.version       = RayyanFormats::VERSION
+  spec.version       = RayyanFormats::CLI_VERSION
   spec.authors       = ["Hossam Hammady"]
   spec.email         = ["github@hammady.net"]
   spec.description   = %q{Rayyan formats main gem with a command line converter}

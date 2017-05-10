@@ -1,3 +1,4 @@
+require "rayyan-formats/version"
 require "rayyan-formats-core"
 require "rayyan-formats-plugins"
 require "rayyan-scrapers"
