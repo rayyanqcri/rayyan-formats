@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rayyan-formats-core', "~> 0.2.1"
   spec.add_dependency 'rayyan-formats-plugins', "~> 0.1.6"
-  spec.add_dependency 'rayyan-scrapers', "~> 0.1.0"
+  spec.add_dependency 'rayyan-scrapers', "~> 0.1.3"
 end
