@@ -48,13 +48,36 @@ You can even combine multiple input files and convert them to a single output fi
       puts e.message
     end
 
-## Testing
+## Development and Testing
 
-    rspec
+To build for local development and testing (requires Docker):
 
-Or
+```bash
+docker build . -t rayyan-formats:1
+```
 
-    rake
+To run the tests:
+
+```bash
+docker run -it --rm -v $PWD:/home rayyan-formats:1
+```
+
+This will allow you to edit files and re-run the tests without rebuilding
+the image.
+
+## Publishing the gem
+
+```bash
+docker build . -t rayyan-formats:1
+docker run -it --rm rayyan-formats:1 /home/publish.sh
+```
+
+Enter your email and password when prompted. If you want to skip interactive
+login, supply `RUBYGEMS_API_KEY` as an additional argument:
+
+```bash
+docker run -it --rm -e RUBYGEMS_API_KEY=YOUR_RUBYGEMS_API_KEY rayyan-formats:1 /home/publish.sh
+```
 
 ## Contributing
 
