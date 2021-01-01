@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/rayyanqcri/rayyan-formats.svg?branch=master)](https://travis-ci.org/rayyanqcri/rayyan-formats)
-[![Coverage Status](https://coveralls.io/repos/github/rayyanqcri/rayyan-formats/badge.svg?branch=master)](https://coveralls.io/github/rayyanqcri/rayyan-formats?branch=master)
+[![Build Status](https://travis-ci.org/rayyansys/rayyan-formats.svg?branch=master)](https://travis-ci.org/rayyansys/rayyan-formats)
+[![Coverage Status](https://coveralls.io/repos/github/rayyansys/rayyan-formats/badge.svg?branch=master)](https://coveralls.io/github/rayyansys/rayyan-formats?branch=master)
 
 # RayyanFormats
 
 This gem offers a command line utility to convert between different reference file
 formats defined using plugins in the `RayyanFormats::Plugins` namespace.
 This is a list of known gems that offer such plugins:
-- [rayyan-formats-core](https://github.com/rayyanqcri/rayyan-formats-core)
-- [rayyan-formats-plugins](https://github.com/rayyanqcri/rayyan-formats-plugins)
-- [rayyan-scrapers](https://github.com/rayyanqcri/rayyan-scrapers)
+- [rayyan-formats-core](https://github.com/rayyansys/rayyan-formats-core)
+- [rayyan-formats-plugins](https://github.com/rayyansys/rayyan-formats-plugins)
+- [rayyan-scrapers](https://github.com/rayyansys/rayyan-scrapers)
 
 It can also be used as a single gem dependency when working with RayyanFormats.
 
